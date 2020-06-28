@@ -134,7 +134,7 @@ LDFLAGS	=	-specs=$(DEVKITPRO)/libnx/switch.specs $(ARCH) -Wl,--allow-multiple-de
 CFLAGS += $(DEF_FLAGS)
 
 LIBS	:= -lswresample -lavformat -lavcodec -lavutil -lopus -lvpx -lswscale -lstdc++ -lbz2 -lpng -lz -lnx -lm
- 
+
 ifeq ($(HAVE_OPENGL), 1)
   LIBS := -lEGL -lglapi -ldrm_nouveau $(LIBS)
 endif

@@ -607,7 +607,7 @@ static float *xmb_gradient_ident(video_frame_info_t *video_info)
       case XMB_THEME_MORNING_BLUE:
          return &gradient_morning_blue[0];
       case XMB_THEME_SUNBEAM:
-         return &gradient_sunbeam[0];         
+         return &gradient_sunbeam[0];
       case XMB_THEME_LEGACY_RED:
       default:
          break;
@@ -1067,7 +1067,7 @@ static void xmb_update_ext_game_info(void *data)
       return;
 
    /* Trigger thumbnail download */
-   
+
    char *system = NULL;
    if (menu_thumbnail_get_system(xmb->thumbnail_path_data, &system))
    {
@@ -1090,7 +1090,7 @@ static void xmb_refresh_thumbnail_image(void *data, unsigned i)
       return;
 
    /* Only refresh thumbnails if thumbnails are enabled */
-   if (  menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) || 
+   if (  menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) ||
          menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_LEFT))
    {
       unsigned depth          = (unsigned)xmb_list_get_size(xmb, MENU_LIST_PLAIN);
@@ -1330,7 +1330,7 @@ static void xmb_set_thumbnail_content(void *data, const char *s)
 
       if (node)
       {
-         if (  !string_is_empty(entry.path) && 
+         if (  !string_is_empty(entry.path) &&
                !string_is_empty(node->fullpath))
          {
             menu_thumbnail_set_content_image(xmb->thumbnail_path_data, node->fullpath, entry.path);
@@ -1438,7 +1438,7 @@ static void xmb_selection_pointer_changed(
          ia                      = xmb->items_active_alpha;
          iz                      = xmb->items_active_zoom;
          if (
-               menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) || 
+               menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) ||
                menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_LEFT)
             )
          {
@@ -1479,10 +1479,10 @@ static void xmb_selection_pointer_changed(
                   menu_thumbnail_cancel_pending_requests();
                   menu_thumbnail_reset(&xmb->thumbnails.right);
                   menu_thumbnail_reset(&xmb->thumbnails.left);
-                  
+
                }
             }
-            
+
             // 如果是游戏列表，从服务器获取当前游戏列表的额外信息
             if (xmb->is_playlist)
             {
@@ -1693,7 +1693,7 @@ static void xmb_list_open_new(xmb_handle_t *xmb,
 
    if (xmb_system_tab <= XMB_SYSTEM_TAB_SETTINGS)
    {
-      if (  menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) || 
+      if (  menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_RIGHT) ||
             menu_thumbnail_is_enabled(xmb->thumbnail_path_data, MENU_THUMBNAIL_LEFT))
       {
          /* This code is horrible, full of hacks...
@@ -3526,7 +3526,7 @@ static void xmb_draw_items(
 static void xmb_context_reset_internal(xmb_handle_t *xmb,
       bool is_threaded, bool reinit_textures);
 
-static void xmb_render(void *data, 
+static void xmb_render(void *data,
       unsigned width, unsigned height, bool is_idle)
 {
    size_t i;

@@ -3844,7 +3844,7 @@ static int action_ok_yun_load_state(const char *path,
 
 //   settings_t *settings = config_get_ptr();
 //   bool resume          = true;
-// 
+//
 //   if (settings)
 //      resume = settings->bools.menu_savestate_resume;
 
@@ -3949,27 +3949,27 @@ static void cb_decompressed(retro_task_t *task,
 // {
 //    core_updater_list_t *core_list = NULL;
 //    bool refresh                   = true;
-// 
+//
 //    /* Get cached core updater list, initialising
 //     * it if required */
 //    core_list = core_updater_list_get_cached();
-// 
+//
 //    if (!core_list)
 //    {
 //       core_updater_list_init_cached(CORE_UPDATER_LIST_SIZE);
 //       core_list = core_updater_list_get_cached();
-// 
+//
 //       if (!core_list)
 //          return menu_cbs_exit();
 //    }
-// 
+//
 //    /* Initial setup... */
 //    menu_entries_ctl(MENU_ENTRIES_CTL_SET_REFRESH, &refresh);
 //    generic_action_ok_command(CMD_EVENT_NETWORK_INIT);
-// 
+//
 //    /* Push core list update task */
 //    task_push_get_core_updater_list(core_list, false, true);
-// 
+//
 //    return generic_action_ok_displaylist_push(
 //          path, NULL, label, type, idx, entry_idx,
 //          ACTION_OK_DL_CORE_UPDATER_LIST);
@@ -4502,13 +4502,13 @@ static int action_ok_core_content_download(const char *path,
 // {
 // #ifdef HAVE_NETWORKING
 //    core_updater_list_t *core_list = core_updater_list_get_cached();
-// 
+//
 //    if (!core_list)
 //       return menu_cbs_exit();
-// 
+//
 //    task_push_core_updater_download(
 //       core_list, path, false, true);
-// 
+//
 // #endif
 //    return 0;
 // }
@@ -6202,21 +6202,21 @@ static int action_ok_video_resolution(const char *path,
 static int action_ok_playlist_default_core(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_PLAYLIST_DEFAULT_CORE);
 }
 
 static int action_ok_playlist_label_display_mode(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_PLAYLIST_LABEL_DISPLAY_MODE);
 }
 
 static int action_ok_playlist_right_thumbnail_mode(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_PLAYLIST_RIGHT_THUMBNAIL_MODE);
 }
 
@@ -6233,42 +6233,42 @@ static int action_ok_remappings_port_list(const char *path,
 static int action_ok_shader_parameter_dropdown_box_list(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_SHADER_PARAMETER);
 }
 
 static int action_ok_shader_preset_parameter_dropdown_box_list(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_SHADER_PRESET_PARAMETER);
 }
 
 static int action_ok_playlist_left_thumbnail_mode(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_PLAYLIST_LEFT_THUMBNAIL_MODE);
 }
 
 static int action_ok_manual_content_scan_system_name(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_MANUAL_CONTENT_SCAN_SYSTEM_NAME);
 }
 
 static int action_ok_manual_content_scan_core_name(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_MANUAL_CONTENT_SCAN_CORE_NAME);
 }
 
 static int action_ok_video_shader_num_passes_dropdown_box_list(const char *path,
       const char *label, unsigned type, size_t idx, size_t entry_idx)
 {
-   return generic_dropdown_box_list(idx, 
+   return generic_dropdown_box_list(idx,
          ACTION_OK_DL_DROPDOWN_BOX_LIST_VIDEO_SHADER_NUM_PASSES);
 }
 

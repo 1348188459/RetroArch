@@ -385,8 +385,8 @@ enum menu_entry_type menu_entry_get_type(uint32_t i)
    file_list_t *selection_buf = menu_entries_get_selection_buf_ptr_internal(0);
    menu_file_list_cbs_t *cbs  = NULL;
    rarch_setting_t *setting   = NULL;
-   
-   /* FIXME/TODO - XXX Really a special kind of ST_ACTION, 
+
+   /* FIXME/TODO - XXX Really a special kind of ST_ACTION,
     * but this should be changed */
    if (menu_setting_ctl(MENU_SETTING_CTL_IS_OF_PATH_TYPE, (void*)setting))
       return MENU_ENTRY_PATH;
@@ -1137,8 +1137,8 @@ void menu_entries_get_at_offset(const file_list_t *list, size_t idx,
 {
    file_list_get_at_offset(list, idx, path, label, file_type, entry_idx);
    if (list && alt)
-      *alt = list->list[idx].alt 
-         ? list->list[idx].alt 
+      *alt = list->list[idx].alt
+         ? list->list[idx].alt
          : list->list[idx].path;
 }
 
@@ -1160,7 +1160,7 @@ static int menu_entries_elem_get_first_char(
 
    if (list)
       if ((path = list->list[offset].alt
-         ? list->list[offset].alt 
+         ? list->list[offset].alt
          : list->list[offset].path))
          ret = tolower((int)*path);
 
@@ -1269,9 +1269,9 @@ int menu_entries_get_title(char *s, size_t len)
    unsigned menu_type            = 0;
    const char *path              = NULL;
    const char *label             = NULL;
-   const file_list_t *list       = menu_entries_list ? 
+   const file_list_t *list       = menu_entries_list ?
       menu_list_get(menu_entries_list, 0) : NULL;
-   menu_file_list_cbs_t *cbs     = list 
+   menu_file_list_cbs_t *cbs     = list
       ? (menu_file_list_cbs_t*)list->list[list->size - 1].actiondata
       : NULL;
 
@@ -3531,7 +3531,7 @@ bool menu_display_reset_textures_list_buffer(
    if (height)
       *height = ti.height;
 
-   /* if the poke interface doesn't support texture load then return false */  
+   /* if the poke interface doesn't support texture load then return false */
    if (!video_driver_texture_load(&ti, filter_type, item))
        return false;
    image_texture_free(&ti);
@@ -3813,7 +3813,7 @@ bool menu_driver_init(bool video_is_threaded)
    command_event(CMD_EVENT_CORE_INFO_INIT, NULL);
    command_event(CMD_EVENT_LOAD_CORE_PERSIST, NULL);
 
-   if (  menu_driver_data || 
+   if (  menu_driver_data ||
          menu_driver_init_internal(video_is_threaded))
    {
       if (menu_driver_ctx && menu_driver_ctx->context_reset)
@@ -4418,7 +4418,7 @@ void get_current_menu_sublabel(char* retstr, size_t max)
    menu_driver_selection_ptr = menu_navigation_get_selection();
    menu_entry_init(&entry);
    menu_entry_get(&entry, 0, menu_navigation_get_selection(), NULL, true);
- 
+
    menu_entry_get_sublabel(&entry, &entry_sublabel);
    strlcpy(retstr, entry_sublabel, max);
 }

@@ -1909,8 +1909,8 @@ static int menu_displaylist_parse_load_content_settings(
                   MENU_ENUM_LABEL_LOAD_STATE,
                   MENU_SETTING_ACTION_LOADSTATE, 0, 0))
                count++;
-			
-			// 云存档入口
+
+            // 云存档入口
             if (menu_entries_append_enum(list,
                   msg_hash_to_str(MENU_ENUM_LABEL_VALUE_YUN_LOAD_STATE),
                   msg_hash_to_str(MENU_ENUM_LABEL_YUN_LOAD_STATE),
@@ -2324,7 +2324,7 @@ static int menu_displaylist_parse_horizontal_content_actions(
                                !string_is_equal(system, "music_history") &&
                                !string_is_equal(system, "video_history");
       }
-      
+
       if (settings->bools.network_on_demand_thumbnails)
          download_enabled = false;
 
@@ -2335,8 +2335,8 @@ static int menu_displaylist_parse_horizontal_content_actions(
                msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_PL_ENTRY_THUMBNAILS),
                MENU_ENUM_LABEL_DOWNLOAD_PL_ENTRY_THUMBNAILS, FILE_TYPE_PLAYLIST_ENTRY, 0, 0);
       }
-	  
-	  // 下载入口
+
+      // 下载入口
       menu_entries_append_enum(info->list,
          msg_hash_to_str(MENU_ENUM_LABEL_VALUE_DOWNLOAD_PL_ENTRY_ROM),
          msg_hash_to_str(MENU_ENUM_LABEL_DOWNLOAD_PL_ENTRY_ROM),
@@ -3048,8 +3048,8 @@ static unsigned menu_displaylist_parse_pl_thumbnail_download_list(
                MENU_ENUM_LABEL_PL_THUMBNAILS_UPDATER_ENTRY,
                FILE_TYPE_DOWNLOAD_PL_THUMBNAIL_CONTENT,
                0, 0);
-			   
-		 // 下载
+
+         // 下载
          menu_entries_append_enum(info->list,
                path_base,
                path,
@@ -4033,12 +4033,12 @@ static unsigned menu_displaylist_populate_subsystem(
    unsigned i = 0;
    int n = 0;
    bool is_rgui = string_is_equal(settings->arrays.menu_driver, "rgui");
-   
+
    /* Select appropriate 'star' marker for subsystem menu entries
     * (i.e. RGUI does not support unicode, so use a 'standard'
     * character fallback) */
    snprintf(star_char, sizeof(star_char), "%s", is_rgui ? "*" : utf8_star_char);
-   
+
    if (menu_displaylist_has_subsystems())
    {
       for (i = 0; i < subsystem_current_count; i++, subsystem++)
@@ -4052,13 +4052,13 @@ static unsigned menu_displaylist_populate_subsystem(
                   "Load %s %s",
                   subsystem->desc,
                   star_char);
-               
+
                /* If using RGUI with sublabels disabled, add the
                 * appropriate text to the menu entry itself... */
                if (is_rgui && !settings->bools.menu_show_sublabels)
                {
                   char tmp[PATH_MAX_LENGTH];
-                  
+
                   n = snprintf(tmp, sizeof(tmp),
                      "%s [%s %s]", s, "Current Content:",
                      subsystem->roms[content_get_subsystem_rom_id()].desc);
@@ -4085,7 +4085,7 @@ static unsigned menu_displaylist_populate_subsystem(
 
                   strlcpy(s, tmp, sizeof(s));
                }
-               
+
                if (menu_entries_append_enum(list,
                   s,
                   msg_hash_to_str(MENU_ENUM_LABEL_SUBSYSTEM_ADD),
@@ -4099,7 +4099,7 @@ static unsigned menu_displaylist_populate_subsystem(
                   "Start %s %s",
                   subsystem->desc,
                   star_char);
-               
+
                /* If using RGUI with sublabels disabled, add the
                 * appropriate text to the menu entry itself... */
                if (is_rgui && !settings->bools.menu_show_sublabels)
@@ -4120,7 +4120,7 @@ static unsigned menu_displaylist_populate_subsystem(
                   if (!string_is_empty(rom_buff))
                   {
                      n = snprintf(tmp, sizeof(tmp), "%s [%s]", s, rom_buff);
-                     
+
                      /* More snprintf() gcc warning suppression... */
                      if ((n < 0) || (n >= PATH_MAX_LENGTH))
                      {
@@ -4129,11 +4129,11 @@ static unsigned menu_displaylist_populate_subsystem(
                            RARCH_WARN("Menu subsystem entry: Description label truncated.\n");
                         }
                      }
-                     
+
                      strlcpy(s, tmp, sizeof(s));
                   }
                }
-               
+
                if (menu_entries_append_enum(list,
                   s,
                   msg_hash_to_str(MENU_ENUM_LABEL_SUBSYSTEM_LOAD),
@@ -4147,7 +4147,7 @@ static unsigned menu_displaylist_populate_subsystem(
             snprintf(s, sizeof(s),
                "Load %s",
                subsystem->desc);
-            
+
             /* If using RGUI with sublabels disabled, add the
              * appropriate text to the menu entry itself... */
             if (is_rgui && !settings->bools.menu_show_sublabels)
@@ -4158,11 +4158,11 @@ static unsigned menu_displaylist_populate_subsystem(
                if (subsystem->num_roms > 0)
                {
                   char tmp[PATH_MAX_LENGTH];
-                  
+
                   n = snprintf(tmp, sizeof(tmp),
                      "%s [%s %s]", s, "Current Content:",
                      subsystem->roms[0].desc);
-                  
+
                   /* More snprintf() gcc warning suppression... */
                   if ((n < 0) || (n >= PATH_MAX_LENGTH))
                   {
@@ -4175,7 +4175,7 @@ static unsigned menu_displaylist_populate_subsystem(
                   strlcpy(s, tmp, sizeof(s));
                }
             }
-            
+
             if (menu_entries_append_enum(list,
                s,
                msg_hash_to_str(MENU_ENUM_LABEL_SUBSYSTEM_ADD),
@@ -4201,7 +4201,7 @@ unsigned menu_displaylist_build_list(file_list_t *list, enum menu_displaylist_ct
       case DISPLAYLIST_SUBSYSTEM_SETTINGS_LIST:
          {
             const struct retro_subsystem_info* subsystem = subsystem_data;
-            rarch_system_info_t *sys_info                = 
+            rarch_system_info_t *sys_info                =
                runloop_get_system_info();
             /* Core not loaded completely, use the data we
              * peeked on load core */
@@ -5346,10 +5346,10 @@ unsigned menu_displaylist_build_list(file_list_t *list, enum menu_displaylist_ct
             /* Get system name list */
 #ifdef HAVE_LIBRETRODB
             settings_t *settings                 = config_get_ptr();
-            struct string_list *system_name_list = 
+            struct string_list *system_name_list =
                manual_content_scan_get_menu_system_name_list(settings->paths.path_content_database);
 #else
-            struct string_list *system_name_list = 
+            struct string_list *system_name_list =
                manual_content_scan_get_menu_system_name_list(NULL);
 #endif
 
@@ -5617,7 +5617,7 @@ unsigned menu_displaylist_build_list(file_list_t *list, enum menu_displaylist_ct
 							MENU_ENUM_LABEL_NETWORK_ON_DEMAND_YUNSAVESTATE,
 							PARSE_ONLY_BOOL, false) != -1)
                count++;
-			   
+
 #ifdef HAVE_ONLINE_UPDATER
             if (menu_displaylist_parse_settings_enum(list,
                      MENU_ENUM_LABEL_UPDATER_SETTINGS,
@@ -6482,7 +6482,7 @@ unsigned menu_displaylist_build_list(file_list_t *list, enum menu_displaylist_ct
                   count++;
                }
             }
-            
+
             {
                settings_t      *settings     = config_get_ptr();
                if (settings->bools.run_ahead_enabled)
@@ -7497,7 +7497,7 @@ unsigned menu_displaylist_netplay_refresh_rooms(file_list_t *list)
 bool menu_displaylist_has_subsystems(void)
 {
    const struct retro_subsystem_info* subsystem = subsystem_data;
-   rarch_system_info_t *sys_info                = 
+   rarch_system_info_t *sys_info                =
       runloop_get_system_info();
    /* Core not loaded completely, use the data we
     * peeked on load core */
@@ -8578,15 +8578,15 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
 
 				// 新版本有BUG，这里还原成老版本
 				// core_updater_list_t *core_list = core_updater_list_get_cached();
-				// 
+				//
 				// if (core_list)
 				// {
 				//    size_t i;
-				// 
+				//
 				//    for (i = 0; i < core_updater_list_size(core_list); i++)
 				//    {
 				//       const core_updater_list_entry_t *entry = NULL;
-				// 
+				//
 				//       if (core_updater_list_get_index(core_list, i, &entry))
 				//       {
 				//          if (menu_entries_append_enum(info->list,
@@ -8597,7 +8597,7 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
 				//          {
 				//             file_list_set_alt_at_offset(
 				//                   info->list, i, entry->display_name);
-				// 
+				//
 				//             count++;
 				//          }
 				//       }
@@ -9550,22 +9550,22 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                      MENU_ENUM_LABEL_UPDATE_ASSETS,
                      MENU_SETTING_ACTION, 0, 0))
                count++;
-			
-			// 更新BIOS
-			if (menu_entries_append_enum(info->list,
-					msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_SYSTEMS),
-					msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_SYSTEMS),
-					MENU_ENUM_LABEL_UPDATE_SYSTEMS,
-					MENU_SETTING_ACTION, 0, 0))
-				count++;
-			
-			// 更新游戏列表
-			if (menu_entries_append_enum(info->list,
-					msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_PLAYLISTS),
-					msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_PLAYLISTS),
-					MENU_ENUM_LABEL_UPDATE_PLAYLISTS,
-					MENU_SETTING_ACTION, 0, 0))
-				count++;
+
+            // 更新BIOS
+            if (menu_entries_append_enum(info->list,
+                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_SYSTEMS),
+                     msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_SYSTEMS),
+                     MENU_ENUM_LABEL_UPDATE_SYSTEMS,
+                     MENU_SETTING_ACTION, 0, 0))
+               count++;
+
+            // 更新游戏列表
+            if (menu_entries_append_enum(info->list,
+                     msg_hash_to_str(MENU_ENUM_LABEL_VALUE_UPDATE_PLAYLISTS),
+                     msg_hash_to_str(MENU_ENUM_LABEL_UPDATE_PLAYLISTS),
+                     MENU_ENUM_LABEL_UPDATE_PLAYLISTS,
+                     MENU_SETTING_ACTION, 0, 0))
+               count++;
 #endif
 
             if (menu_entries_append_enum(info->list,
@@ -9639,12 +9639,12 @@ bool menu_displaylist_ctl(enum menu_displaylist_ctl_state type,
                   MENU_ENUM_LABEL_NETWORK_ON_DEMAND_THUMBNAILS,
                   PARSE_ONLY_BOOL, false) != -1)
                  count++;
-			
-			// 云存档
+
+            // 云存档
             if (menu_displaylist_parse_settings_enum(info->list,
-						MENU_ENUM_LABEL_NETWORK_ON_DEMAND_YUNSAVESTATE,
-						PARSE_ONLY_BOOL, false) != -1)
-               count++;
+                  MENU_ENUM_LABEL_NETWORK_ON_DEMAND_YUNSAVESTATE,
+                  PARSE_ONLY_BOOL, false) != -1)
+                 count++;
 #endif
          }
 
